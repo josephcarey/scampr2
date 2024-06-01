@@ -14,9 +14,11 @@ module.exports = {
     rules: {
         // Special ESLint rules or overrides go here.
     },
-    overrides: {
-        files: ['tests/**/*.ts', '**/**/*.test.ts'],
-        env: { "jest": true, "node": true}
-    }
+    overrides: [
+        {
+            files: ['tests/**/*.ts', '**/**/*.test.ts'],
+            env: { "jest": true, "node": true}
+        }
+    ]  
     // files: ["*/**.ts"]
 }

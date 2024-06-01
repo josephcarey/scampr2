@@ -1,7 +1,7 @@
 {
-    "name": "ts-starter",
+    "name": "scampr2",
     "version": "1.0.0",
-    "description": "A basic starter repo for getting Typescript, Jest, and eslint working together.",
+    "description": "A basic Slack bot to get information from campsite into Slack for Dorian 2024.",
     "main": "index.js",
     "scripts": {
         "predev": "npm run clean",
