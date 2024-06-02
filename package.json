@@ -2,10 +2,10 @@
     "name": "scampr2",
     "version": "1.0.0",
     "description": "A basic Slack bot to get information from campsite into Slack for Dorian 2024.",
-    "main": "index.js",
+    "main": "dist/app.js",
     "scripts": {
         "predev": "npm run clean",
-        "dev": "tsc --watch",
+        "dev": "tsc && nodemon dist/app.js",
         "build": "tsc",
         "clean": "npm run lint && npm run format",
         "lint": "eslint ./src --fix",
@@ -27,5 +27,9 @@
         "prettier": "^3.2.5",
         "ts-jest": "^29.1.4",
         "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@slack/bolt": "^3.18.0",
+        "dotenv": "^16.4.5"
     }
 }
