@@ -1,3 +1,3 @@
-import { scamprCommandRegistration } from './scampr-command.js'
+import { scamprCommandRegistration } from './scampr-command/scampr-command.js'
 
-export const routerCommands = [scamprCommandRegistration]
+export const routerCommandRegistrations = [scamprCommandRegistration]

@@ -1,9 +1,7 @@
-// import { STUDENT_SEARCH_BUTTON_STRING } from '../../listeners/actions/student-search/student-search-button-action.js'
+import { STUDENT_SEARCH_BUTTON_STRING } from '../../routers/actions/student-search-button-action/student-search-button-action.js'
 import { BoltResponse } from '../../types/index.js'
 
-export const STUDENT_SEARCH_BUTTON_STRING = 'student-search-button-action'
-
-export const getWelcomeBlock: () => BoltResponse = () => ({
+export const getWelcomeMessage: () => BoltResponse = () => ({
     text: 'Scampr welcome message.',
     blocks: [
         {
