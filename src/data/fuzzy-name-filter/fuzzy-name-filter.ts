@@ -6,7 +6,11 @@ export const fuzzyNameFilter: (
 ) => Camper[] = (campers, searchString) =>
     campers.filter(
         (camper) =>
-            camper.preferredName.includes(searchString) ||
-            camper.firstName.includes(searchString) ||
-            camper.lastName.includes(searchString)
+            camper.preferredName
+                .toLowerCase()
+                .includes(searchString.toLowerCase()) ||
+            camper.firstName
+                .toLowerCase()
+                .includes(searchString.toLowerCase()) ||
+            camper.lastName.toLowerCase().includes(searchString.toLowerCase())
     )
