@@ -13,3 +13,5 @@
 - "This student might be in a lesson"
 - Floor counselor displays, class counselor displays
 - Click through to classes/rooms/etc.
+- Script to pull lessons and generate studio lists for proofing
+- 
