@@ -1,7 +1,7 @@
-import { getWelcomeBlock } from '../../messages/welcome-message/welcome-message.js'
+import { getWelcomeMessage } from '../../messages/welcome-message/welcome-message.js'
 import { type BoltResponse } from '../../types/index.js'
 
 export const homeResponder: () => Promise<BoltResponse> = async () => {
-    const message = getWelcomeBlock()
+    const message = getWelcomeMessage()
     return message
 }

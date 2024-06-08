@@ -20,9 +20,16 @@ export interface BoltActionInput {
         value: string
     }
     respond: BoltSayRespond
+    plain_text_input: string
+    dispatch_action: boolean
 }
 
 export type BoltAction = (input: BoltActionInput) => Promise<void>
+
+export interface BoltActionRegistration {
+    actionString: string
+    toRegister: BoltAction
+}
 
 export interface BoltCommandInput {
     command: string
@@ -46,6 +53,7 @@ export type BoltResponseBlock =
     | BoltResponseBlockHeader
     | BoltResponseBlockAction
     | BoltResponseBlockSection
+    | BoltResponseBlockInput
 
 export interface BoltResponseBlockHeader {
     type: 'header'
@@ -55,6 +63,19 @@ export interface BoltResponseBlockHeader {
 export interface BoltResponseBlockAction {
     type: 'actions'
     elements: BoltResponseBlockElement[]
+}
+
+export interface BoltResponseBlockInput {
+    type: 'input'
+    label: {
+        type: 'plain_text'
+        text: string
+        emoji: boolean
+    }
+    element: {
+        type: 'plain_text_input'
+        action_id: string
+    }
 }
 
 export type BoltResponseBlockElement = BoltResponseBlockElementButton
