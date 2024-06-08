@@ -30,7 +30,9 @@ export interface BoltActionRegistration {
 }
 
 export interface BoltCommandInput {
-    command: string
+    command: {
+        text: string
+    }
     ack: BoltAck
     say: BoltSayRespond
 }
