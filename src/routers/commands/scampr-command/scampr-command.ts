@@ -1,4 +1,4 @@
-import { homeResponder } from '../../../responders/home/home-responder'
+import { homeResponder } from '../../../responders/home-responder/home-responder'
 import { BoltCommand, BoltCommandRegistration } from '../../../types'
 
 const SCAMPR_PATH = '/scampr'

@@ -1,4 +1,4 @@
-import { STUDENT_SEARCH_BUTTON_STRING } from '../../routers/actions/student-search-button-action/student-search-button-action.js'
+import { STUDENT_SEARCH_BUTTON_STRING } from '../../routers/actions/student-search-intro-button-action/student-search-intro-button-action.js'
 import { BoltResponse } from '../../types/index.js'
 
 export const getWelcomeMessage: () => BoltResponse = () => ({

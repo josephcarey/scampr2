@@ -1,4 +1,4 @@
-import { homeResponder } from '../../../responders/home/home-responder.js'
+import { homeResponder } from '../../../responders/home-responder/home-responder.js'
 import {
     BoltActionRegistration,
     type BoltAction,

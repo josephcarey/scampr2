@@ -8,11 +8,12 @@
         "build": "tsc",
         "clean": "npm run lint && npm run format",
         "predev": "npm run clean",
-        "dev": "npm run build && nodemon dist/app.js",
+        "dev": "npm run build && npm run run",
         "format": "prettier ./src --write",
         "lint": "eslint ./src --fix",
         "purge": "rimraf dist",
         "pretest": "npm run clean",
+        "run": "nodemon dist/app.js",
         "test": "jest"
     },
     "keywords": [],
