@@ -1,7 +1,7 @@
 import { BoltResponse, Camper } from '../../types'
 import { tabAndNewlineParse } from '../../utils/tab-and-newline-parse'
 
-export const getCamperDetailsMessage: (camper: Camper) => BoltResponse = (
+export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
     camper
 ) => ({
     text: `${camper.preferredName} (${camper.roomNumber}...)`,
@@ -22,7 +22,7 @@ export const getCamperDetailsMessage: (camper: Camper) => BoltResponse = (
             },
             accessory: {
                 type: 'image',
-                image_url: camper.photoFileName ?? '',
+                image_url: camper.imageUrl ?? '',
                 alt_text: 'camper',
             },
             // accessory: {

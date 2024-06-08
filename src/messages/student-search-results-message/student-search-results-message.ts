@@ -1,4 +1,4 @@
-import { getCamperListItem } from '../../blocks/camper-list-item/camper-list-item.js'
+import { getStudentListItem } from '../../blocks/student-list-item/student-list-item.js'
 import { getHomeButtonBlock } from '../../blocks/home-button-block/home-button-block.js'
 import { getNewSearchButtonBlock } from '../../blocks/new-search-button-block/new-search-button-block.js'
 import { BoltResponse, Camper } from '../../types/index.js'
@@ -28,7 +28,7 @@ export const getStudentSearchResultsMessage: (
                 text: `Here's what I found (searching \"${inputString}\"):`,
             },
         },
-        ...campers.map((camper) => getCamperListItem(camper)),
+        ...campers.map((camper) => getStudentListItem(camper)),
         // getStudentSearchBlock(),
     ],
 })

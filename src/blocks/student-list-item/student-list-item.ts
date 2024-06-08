@@ -1,8 +1,9 @@
+import { STUDENT_DETAIL_BUTTON_STRING } from '../../routers/actions/student-detail-button-action/student-detail-button-action'
 import { BoltResponseBlockSection, Camper } from '../../types'
 
-export const getCamperListItem: (camper: Camper) => BoltResponseBlockSection = (
-    camper
-) => ({
+export const getStudentListItem: (
+    camper: Camper
+) => BoltResponseBlockSection = (camper) => ({
     type: 'section',
     text: {
         type: 'mrkdwn',
@@ -16,6 +17,6 @@ export const getCamperListItem: (camper: Camper) => BoltResponseBlockSection = (
             emoji: true,
         },
         value: camper.id,
-        action_id: 'camper-button',
+        action_id: STUDENT_DETAIL_BUTTON_STRING,
     },
 })
