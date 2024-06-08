@@ -15,7 +15,7 @@ const studentSearchResultsButtonAction: BoltAction = async ({
         `studentSearchResultsButtonAction call with action: ${action.value}`
     )
 
-    const message = await studentSearchResultsResponder()
+    const message = await studentSearchResultsResponder(action.value)
 
     await respond(message)
 }
