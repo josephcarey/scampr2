@@ -32,12 +32,15 @@ export interface BoltCommandInput {
 
 export type BoltCommand = (input: BoltCommandInput) => Promise<void>
 
-// export interface BoltResponse {
-//     text: string
-//     blocks: BoltResponseBlock[]
-// }
+export interface BoltCommandRegistration {
+    path: string
+    toRegister: BoltCommand
+}
 
-export type BoltResponse = string
+export interface BoltResponse {
+    text: string
+    blocks: BoltResponseBlock[]
+}
 
 export type BoltResponseBlock =
     | BoltResponseBlockHeader

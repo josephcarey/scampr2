@@ -6,7 +6,7 @@
     "scripts": {
         "predev": "npm run clean",
         "dev": "tsc && nodemon dist/app.js",
-        "build": "tsc",
+        "build": "rimraf dist && tsc",
         "clean": "npm run lint && npm run format",
         "lint": "eslint ./src --fix",
         "format": "prettier ./src --write",
@@ -30,6 +30,7 @@
     },
     "dependencies": {
         "@slack/bolt": "^3.18.0",
-        "dotenv": "^16.4.5"
+        "dotenv": "^16.4.5",
+        "rimraf": "^5.0.7"
     }
 }

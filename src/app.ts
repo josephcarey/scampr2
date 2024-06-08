@@ -1,11 +1,9 @@
 import * as process from 'node:process'
 import 'dotenv/config'
 import { App } from '@slack/bolt'
-// import { registerListeners } from './listeners/index.js'
-import { BoltApp } from './types/index.js'
-import { isNumeric } from './utils/index.js'
-
-// const { App } = bolt
+import { BoltApp } from './types'
+import { registerRouters } from './routers'
+import { isNumeric } from './util'
 
 const DEFAULT_PORT = 3000
 
@@ -16,29 +14,7 @@ const app = new App({
     appToken: process.env.APP_TOKEN,
 }) as unknown as BoltApp
 
-// registerListeners(app)
-
-app.command('/scampr', async ({ ack, say }) => {
-    try {
-        await ack()
-        say('hello world!')
-        // const response = await homeResponder()
-        // await say(response)
-
-        // Console.log(`Processing camperHandler request for text: ${command.text}`);
-
-        // if (command.text && command.text.length === 0) {
-        // say(
-        // 'Oops! Received /camper command, but no name was included. Please include a name to search for a camper, e.g.: `/camper Jo`',
-        // );
-        // }
-
-        // say('something went wrong with /scampr...');
-    } catch (error) {
-        console.log('error:')
-        console.error(error)
-    }
-})
+registerRouters(app)
 
 // Error handling
 app.error(async (error: unknown) => {
