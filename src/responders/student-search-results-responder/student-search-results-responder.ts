@@ -1,6 +1,6 @@
 import { getStudentSearchResultsMessage } from '../../messages/student-search-results-message/student-search-results-message.js'
 
-import { type BoltResponse } from '../../types/index.js'
+import { ScamprResponder } from '../../types/index.js'
 
-export const studentSearchResultsResponder: () => Promise<BoltResponse> =
-    async () => getStudentSearchResultsMessage()
+export const studentSearchResultsResponder: ScamprResponder = async () =>
+    getStudentSearchResultsMessage()

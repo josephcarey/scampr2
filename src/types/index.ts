@@ -1,4 +1,4 @@
-export type ScamprResponder = () => Promise<BoltResponse>
+export type ScamprResponder = (inputString?: string) => Promise<BoltResponse>
 
 export type ScamprRegisterFunction = (app: BoltApp) => void
 

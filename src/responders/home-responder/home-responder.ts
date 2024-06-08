@@ -1,5 +1,4 @@
 import { getWelcomeMessage } from '../../messages/welcome-message/welcome-message.js'
-import { type BoltResponse } from '../../types/index.js'
+import { ScamprResponder } from '../../types/index.js'
 
-export const homeResponder: () => Promise<BoltResponse> = async () =>
-    getWelcomeMessage()
+export const homeResponder: ScamprResponder = async () => getWelcomeMessage()
