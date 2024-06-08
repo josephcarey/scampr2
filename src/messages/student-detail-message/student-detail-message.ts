@@ -42,16 +42,16 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
                 type: 'mrkdwn',
                 text: `Room ${camper.roomNumber}`,
             },
-            accessory: {
-                type: 'button',
-                text: {
-                    type: 'plain_text',
-                    text: 'Select',
-                    emoji: true,
-                },
-                value: camper.roomNumber,
-                action_id: 'room-button',
-            },
+            // accessory: {
+            //     type: 'button',
+            //     text: {
+            //         type: 'plain_text',
+            //         text: 'Select',
+            //         emoji: true,
+            //     },
+            //     value: camper.roomNumber,
+            //     action_id: 'room-button',
+            // },
         },
         {
             type: 'section',
