@@ -41,6 +41,12 @@ export interface BoltResponseBlockElementButton {
     action_id: string
 }
 
+export interface BoltResponseBlockElementImage {
+    type: 'image'
+    image_url: string
+    alt_text: string
+}
+
 export interface BoltResponseBlockSection {
     type: 'section'
     text: BoltResponseBlockText
@@ -53,4 +59,6 @@ export interface BoltResponseBlockText {
     emoji?: boolean
 }
 
-export type BoltResponseBlockAccessory = BoltResponseBlockElementButton
+export type BoltResponseBlockAccessory =
+    | BoltResponseBlockElementButton
+    | BoltResponseBlockElementImage

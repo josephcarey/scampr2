@@ -23,6 +23,7 @@ export const mapCamper = (input: any): Camper => {
         p5: getClass(sessions, ' P5 ') ?? '---',
         p6: getClass(sessions, ' P6 ') ?? '---',
         p7: getClass(sessions, ' P7 ') ?? '---',
+        imageUrl: `https://s3.amazonaws.com/camper_photos_bucket_ezf/${input['Photo filename']}`,
         // sessions: input['2024 &gt; Session names (all)'],
         //:'Middle School Camp, MS - P1 - Concert Band, MS - P2 - Theatre Games, MS - P3 - Woodwind Choir, MS - P4 - Mask Making, MS - P5 - Concert Band, MS - P6 - Clay Sculpture, MS - P7 - Free Period',
     }

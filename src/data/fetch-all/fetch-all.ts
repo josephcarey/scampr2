@@ -13,7 +13,6 @@ export const getAllCampers = async () => {
     )
     console.log(`getAllCampers found ${allCampers.length} results`)
 
-    console.log('camper 1:')
-    console.log(JSON.stringify(mapCamper(allCampers[0])))
-    return allCampers
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return allCampers.map((camper: any) => mapCamper(camper))
 }

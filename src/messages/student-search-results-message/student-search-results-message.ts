@@ -1,10 +1,12 @@
+import { getCamperListItem } from '../../blocks/camper-list-item/camper-list-item.js'
 import { getHomeButtonBlock } from '../../blocks/home-button-block/home-button-block.js'
 import { getNewSearchButtonBlock } from '../../blocks/new-search-button-block/new-search-button-block.js'
-import { BoltResponse } from '../../types/index.js'
+import { BoltResponse, Camper } from '../../types/index.js'
 
 export const getStudentSearchResultsMessage: (
-    inputString: string
-) => Promise<BoltResponse> = async (inputString) => ({
+    inputString: string,
+    campers: Camper[]
+) => Promise<BoltResponse> = async (inputString, campers) => ({
     text: 'Student search results...',
     blocks: [
         {
@@ -26,6 +28,7 @@ export const getStudentSearchResultsMessage: (
                 text: `Here's what I found (searching \"${inputString}\"):`,
             },
         },
+        ...campers.map((camper) => getCamperListItem(camper)),
         // getStudentSearchBlock(),
     ],
 })

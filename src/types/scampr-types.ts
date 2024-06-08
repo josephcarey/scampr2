@@ -19,5 +19,6 @@ export type Camper = {
     p5: string
     p6: string
     p7: string
+    imageUrl: string
     // sessions: string
 }
