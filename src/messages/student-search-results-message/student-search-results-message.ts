@@ -1,30 +1,31 @@
 import { getHomeButtonBlock } from '../../blocks/home-button-block/home-button-block.js'
-// import { getStudentSearchBlock } from '../../blocks/student-search-block/student-search-block.js'
+import { getNewSearchButtonBlock } from '../../blocks/new-search-button-block/new-search-button-block.js'
 import { BoltResponse } from '../../types/index.js'
 
-export const getStudentSearchResultsMessage: () => Promise<BoltResponse> =
-    async () => ({
-        text: 'Student search results...',
-        blocks: [
-            {
-                type: 'header',
-                text: {
-                    type: 'plain_text',
-                    text: ':squirrel: Student Search Results :squirrel:',
-                    emoji: true,
-                },
+export const getStudentSearchResultsMessage: (
+    inputString: string
+) => Promise<BoltResponse> = async (inputString) => ({
+    text: 'Student search results...',
+    blocks: [
+        {
+            type: 'header',
+            text: {
+                type: 'plain_text',
+                text: ':squirrel: Student Search Results :squirrel:',
+                emoji: true,
             },
-            {
-                type: 'actions',
-                elements: [getHomeButtonBlock()],
+        },
+        {
+            type: 'actions',
+            elements: [getHomeButtonBlock(), getNewSearchButtonBlock()],
+        },
+        {
+            type: 'section',
+            text: {
+                type: 'mrkdwn',
+                text: `Here's what I found (searching \"${inputString}\"):`,
             },
-            {
-                type: 'section',
-                text: {
-                    type: 'mrkdwn',
-                    text: "Here's what I found:",
-                },
-            },
-            // getStudentSearchBlock(),
-        ],
-    })
+        },
+        // getStudentSearchBlock(),
+    ],
+})

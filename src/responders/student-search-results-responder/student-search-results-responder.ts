@@ -12,5 +12,5 @@ export const studentSearchResultsResponder: ScamprResponder = async (
 
     const students = await getAllCampers()
     console.log('students length:', students.length)
-    return getStudentSearchResultsMessage()
+    return getStudentSearchResultsMessage(inputString ?? '')
 }
