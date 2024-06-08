@@ -1,9 +1,9 @@
-import { getStudentSearchResultsMessage } from '../../../messages/student-search-results-message/student-search-results-message.js'
+import { studentSearchResultsResponder } from '../../../responders/student-search-results-responder/student-search-results-responder.js'
 import { BoltAction, BoltActionRegistration } from '../../../types/index.js'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const STUDENT_SEARCH_RESULTS_INPUT_STRING =
-    'student-search-button-action'
+    'student-search-results-button-action'
 
 const studentSearchResultsButtonAction: BoltAction = async ({
     ack,
@@ -12,10 +12,10 @@ const studentSearchResultsButtonAction: BoltAction = async ({
 }) => {
     await ack()
     console.log(
-        `studentSearchResultsButtonAction call with action: ${JSON.stringify(action)}`
+        `studentSearchResultsButtonAction call with action: ${action.value}`
     )
 
-    const message = await getStudentSearchResultsMessage()
+    const message = await studentSearchResultsResponder()
 
     await respond(message)
 }
