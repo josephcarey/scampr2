@@ -1,4 +1,4 @@
-import { isNumeric } from './'
+import { isNumeric } from '.'
 
 test('isNumeric returns true for 0', (): void => {
     expect(isNumeric(0)).toBe(true)

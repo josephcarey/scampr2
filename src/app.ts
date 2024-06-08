@@ -3,7 +3,7 @@ import 'dotenv/config'
 import { App } from '@slack/bolt'
 import { BoltApp } from './types'
 import { registerRouters } from './routers'
-import { isNumeric } from './util'
+import { isNumeric } from './utils'
 
 const DEFAULT_PORT = 3000
 

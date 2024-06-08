@@ -4,12 +4,14 @@
     "description": "A basic Slack bot to get information from campsite into Slack for Dorian 2024.",
     "main": "dist/app.js",
     "scripts": {
-        "predev": "npm run clean",
-        "dev": "tsc && nodemon dist/app.js",
-        "build": "rimraf dist && tsc",
+        "prebuild": "npm run purge",
+        "build": "tsc",
         "clean": "npm run lint && npm run format",
-        "lint": "eslint ./src --fix",
+        "predev": "npm run clean",
+        "dev": "npm run build && nodemon dist/app.js",
         "format": "prettier ./src --write",
+        "lint": "eslint ./src --fix",
+        "purge": "rimraf dist",
         "pretest": "npm run clean",
         "test": "jest"
     },
