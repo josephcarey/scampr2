@@ -21,11 +21,20 @@ export const studentSearchResultsResponder: ScamprResponder = async (
         return getErrorMessage(
             `Student search turned up too many results: ${filteredStudents.length} results returned for search input ${inputString}. Try a more specific search input.`
         )
-    } else if (filteredStudents.length == 1)
+    } else if (filteredStudents.length == 1) {
         return getStudentSearchResultsMessage(
             inputString ?? '',
             filteredStudents
         )
+    } else if (
+        filteredStudents.length > 1 &&
+        filteredStudents.length < MAX_RECORDS
+    ) {
+        return getStudentSearchResultsMessage(
+            inputString ?? '',
+            filteredStudents
+        )
+    }
 
     return getErrorMessage(
         `Student search returned no results for ${inputString}. Make a different choice.`
