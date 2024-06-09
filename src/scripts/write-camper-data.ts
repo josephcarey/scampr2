@@ -9,9 +9,9 @@ const OUTPUT_PATH = './output/camper-data.csv'
 
 export const main = async () => {
     const allCampers = await getAllCampers()
-    allCampers.sort(
-        (a: Camper, b: Camper) =>
-            `${a.lastName}${a.firstName}` > `${b.lastName}${b.firstName}`
+    const sortedCampers = allCampers.sort((a: Camper, b: Camper) =>
+        // `${a.lastName}${a.firstName}` > `${b.lastName}${b.firstName}`
+        a.roomNumber.localeCompare(b.roomNumber)
     )
 
     const csvWriter = createObjectCsvWriter({
@@ -19,7 +19,8 @@ export const main = async () => {
         header: [
             { id: 'firstName', title: 'First Name' },
             { id: 'lastName', title: 'Last Name' },
-            // { id: 'preferredName', title: 'Name' },
+            { id: 'preferredName', title: 'Name' },
+            { id: 'roomNumber', title: 'Room Number' },
             // { id: 'id', title: 'Camper ID' },
             // { id: 'dateOfBirth', title: 'Date of Birth' },
             { id: 'p1', title: 'P1' },
@@ -36,7 +37,7 @@ export const main = async () => {
     console.log(`Writing csv ${OUTPUT_PATH}...`)
 
     csvWriter
-        .writeRecords(allCampers) // returns a promise
+        .writeRecords(sortedCampers) // returns a promise
         .then(() => {
             console.log('\t...Done')
         })
