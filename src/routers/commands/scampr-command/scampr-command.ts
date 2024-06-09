@@ -27,6 +27,7 @@ const scamprCommand: BoltCommand = async ({ ack, say, command }) => {
                 remainingCommandTexts.join(' ')
             )
             await say(searchResponse)
+            return
         }
 
         // show the main menu
