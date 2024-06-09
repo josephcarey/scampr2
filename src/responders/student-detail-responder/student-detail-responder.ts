@@ -12,11 +12,7 @@ export const studentDetailResponder: ScamprResponder = async (id) => {
     console.log('students length:', students.length)
     const filteredStudents = idFilter(students, id ?? '')
     console.log('filtered length:', filteredStudents.length)
-    console.log(filteredStudents[0].imageUrl)
 
     //TODO: better error handling, return a clean message if something goes wrong
     return getStudentDetailMessage(filteredStudents[0])
 }
-
-// calc: https://s3.amazonaws.com/camper_photos_bucket_ezf/thumbnail_XiMKUns1-1717367591.jpg
-// is  : https://s3.amazonaws.com/camper_photos_bucket_ezf/thumbnail_XiMKUns1-1717367591.jpg
