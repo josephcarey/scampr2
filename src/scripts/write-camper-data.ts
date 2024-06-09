@@ -31,7 +31,7 @@ export const main = async () => {
 
     console.log(`Writing csv ${OUTPUT_PATH}...`)
 
-    await csvWriter
+    csvWriter
         .writeRecords(sortedCampers) // returns a promise
         .then(() => {
             console.log('\t...Done')
