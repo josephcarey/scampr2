@@ -4,6 +4,13 @@ export type ScamprResponder = (inputString?: string) => Promise<BoltResponse>
 
 export type ScamprRegisterFunction = (app: BoltApp) => void
 
+export type CamperLesson = {
+    day: string
+    time: string
+    instrument: string
+    studio: string
+}
+
 export type Camper = {
     lastName: string
     firstName: string
@@ -21,5 +28,6 @@ export type Camper = {
     p7: string
     imageUrl: string
     lessons: string
+    splitLessons: CamperLesson[]
     // sessions: string
 }
