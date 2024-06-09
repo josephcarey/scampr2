@@ -68,12 +68,12 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
                 ]),
             },
         },
-        // {
-        //     type: 'section',
-        //     text: {
-        //         type: 'mrkdwn',
-        //         text: `Lessons: ${camper.lessons ?? 'no lessons...'}`,
-        //     },
-        // },
+        {
+            type: 'section',
+            text: {
+                type: 'mrkdwn',
+                text: `Lessons: ${camper.lessons}`,
+            },
+        },
     ],
 })

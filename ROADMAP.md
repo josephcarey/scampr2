@@ -12,6 +12,7 @@
 
 ## Tweaks
 - update so scripts can use root-level await
+- cleaner distinction of where try-catches happen and better error handling
 
 ## Far Future
 - "This student might be in a lesson"
