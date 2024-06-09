@@ -16,7 +16,9 @@
         "run": "nodemon dist/app.js",
         "test": "jest",
         "prescript:camper-data": "npm run clean && npm run build",
-        "script:camper-data": "node dist/scripts/write-camper-data.js"
+        "script:camper-data": "node dist/scripts/write-camper-data.js",
+        "prescript:lesson-schedules": "npm run clean && npm run build",
+        "script:lesson-schedules": "node dist/scripts/write-lesson-schedules.js"
     },
     "keywords": [],
     "author": "Joseph Carey",
