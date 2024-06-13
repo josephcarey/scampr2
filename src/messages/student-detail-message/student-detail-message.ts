@@ -1,3 +1,4 @@
+import { getHomeButtonBlock } from '../../blocks/home-button-block/home-button-block'
 import { BoltResponse, Camper } from '../../types'
 import { tabAndNewlineParse } from '../../utils/tab-and-newline-parse'
 
@@ -13,6 +14,10 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
                 text: camper?.preferredName ?? 'Missing Name',
                 emoji: true,
             },
+        },
+        {
+            type: 'actions',
+            elements: [getHomeButtonBlock()],
         },
         {
             type: 'image',
