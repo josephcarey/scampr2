@@ -8,6 +8,7 @@ export type BoltResponseBlock =
     | BoltResponseBlockAction
     | BoltResponseBlockSection
     | BoltResponseBlockInput
+    | BoltResponseBlockImage
 
 export interface BoltResponseBlockHeader {
     type: 'header'
@@ -30,6 +31,12 @@ export interface BoltResponseBlockInput {
         type: 'plain_text_input'
         action_id: string
     }
+}
+
+export interface BoltResponseBlockImage {
+    type: 'image'
+    alt_text: string
+    image_url: string
 }
 
 export type BoltResponseBlockElement = BoltResponseBlockElementButton
