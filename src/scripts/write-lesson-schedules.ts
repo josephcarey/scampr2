@@ -24,11 +24,11 @@ export type studioTime = {
 
 const mapLessonEntries: (camper: Camper) => LessonEntry[] = (camper) =>
     camper.splitLessons.map((lesson) => ({
-        name: camper.preferredName,
-        day: lesson.day,
-        time: lesson.time,
-        studio: lesson.studio,
-        instrument: lesson.instrument,
+        name: camper.preferredName.trim(),
+        day: lesson.day.trim(),
+        time: lesson.time.replace(/[apm.]/gi, '').trim(),
+        studio: lesson.studio.trim(),
+        instrument: lesson.instrument.trim(),
     }))
 
 export const main = async () => {
@@ -37,7 +37,25 @@ export const main = async () => {
     const allLessonEntries = allCampers.flatMap((camper: Camper) =>
         mapLessonEntries(camper)
     )
-    console.log(allLessonEntries)
+
+    // write the entire originals
+    const csvWriter = createObjectCsvWriter({
+        path: `${OUTPUT_FOLDER}/raw-lessons.csv`,
+        header: [
+            { id: 'day', title: 'Day' },
+            { id: 'name', title: 'Name' },
+            { id: 'time', title: 'Time' },
+            { id: 'studio', title: 'Studio' },
+            { id: 'instrument', title: 'Instrument' },
+        ],
+    })
+
+    console.log(`Writing csv...`)
+    csvWriter
+        .writeRecords(allLessonEntries) // returns a promise
+        .then(() => {
+            console.log('\t...Done')
+        })
 
     const studios = new Map()
 
