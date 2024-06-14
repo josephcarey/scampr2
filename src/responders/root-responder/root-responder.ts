@@ -3,9 +3,11 @@ import { homeResponder } from '../home-responder/home-responder.js'
 import { studentSearchResultsResponder } from '../student-search-results-responder/student-search-results-responder.js'
 
 export const rootResponder: ScamprResponder = async (inputText) => {
+    console.log(`in rootResponder with text ${inputText}`)
     if (!inputText) return await homeResponder()
 
     const commandTexts = inputText?.trim().split(' ')
+    console.log('commandTexts', commandTexts)
 
     const [firstCommandText, ...remainingCommandTexts] = commandTexts
 
@@ -21,6 +23,8 @@ export const rootResponder: ScamprResponder = async (inputText) => {
         )
     }
 
+    return await studentSearchResultsResponder(commandTexts.join(' '))
+
     // show the main menu
-    return await homeResponder()
+    // return await homeResponder()
 }
