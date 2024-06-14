@@ -19,11 +19,19 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
             type: 'actions',
             elements: [getHomeButtonBlock()],
         },
-        // {
-        //     type: 'image',
-        //     alt_text: `A picture of ${camper.preferredName}`,
-        //     image_url: camper.imageUrl ?? '',
-        // },
+        camper.imageUrl
+            ? {
+                  type: 'image',
+                  alt_text: `A picture of ${camper.preferredName}`,
+                  image_url: camper.imageUrl,
+              }
+            : {
+                  type: 'section',
+                  text: {
+                      type: 'mrkdwn',
+                      text: 'No photo for student',
+                  },
+              },
         {
             type: 'section',
             text: {
@@ -31,28 +39,28 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
                 text: `Quick notes: ${camper.quickNotes}`,
             },
         },
-        {
-            type: 'section',
-            text: {
-                type: 'mrkdwn',
-                text: `Face:`,
-            },
-            accessory: {
-                type: 'image',
-                image_url: camper.imageUrl ?? '',
-                alt_text: 'camper',
-            },
-            // accessory: {
-            //   type: "button",
-            //   text: {
-            //     type: "plain_text",
-            //     text: "Select",
-            //     emoji: true,
-            //   },
-            //   value: camper.roomNumber,
-            //   action_id: "room-button",
-            // },
-        },
+        // {
+        // type: 'section',
+        // text: {
+        //     type: 'mrkdwn',
+        //     text: `Face:`,
+        // },
+        // accessory: {
+        //     type: 'image',
+        //     image_url: camper.imageUrl ?? '',
+        //     alt_text: 'camper',
+        // },
+        // accessory: {
+        //   type: "button",
+        //   text: {
+        //     type: "plain_text",
+        //     text: "Select",
+        //     emoji: true,
+        //   },
+        //   value: camper.roomNumber,
+        //   action_id: "room-button",
+        // },
+        // },
         {
             type: 'section',
             text: {

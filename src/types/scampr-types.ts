@@ -26,7 +26,7 @@ export type Camper = {
     p5: string
     p6: string
     p7: string
-    imageUrl: string
+    imageUrl: string | null
     lessons: string
     splitLessons: CamperLesson[]
     quickNotes: string

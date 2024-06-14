@@ -1,5 +1,11 @@
 import { Camper, CamperLesson } from '../../types'
 
+const BASE_IMAGE_FILE_PATH =
+    'https://s3.amazonaws.com/camper_photos_bucket_ezf/'
+
+const getImageFilePath: (filename: string) => string = (filename) =>
+    `${BASE_IMAGE_FILE_PATH}${filename}`
+
 const getClass: (sessions: string[], text: string) => string = (
     sessions,
     text
@@ -27,6 +33,7 @@ const getSplitLessons: (lessons: string | undefined) => CamperLesson[] = (
 export const mapCamper = (input: any): Camper => {
     // console.log(JSON.stringify(input, undefined, 2))
     const sessions = (input['2024 &gt; Session names (all)'] ?? []).split(', ')
+    const fileName = input['Photo filename']
     return {
         lastName: input['Last name'] ?? '---',
         firstName: input['First name'] ?? '---',
@@ -44,7 +51,7 @@ export const mapCamper = (input: any): Camper => {
         p7: getClass(sessions, ' P7 ') ?? '---',
         lessons: input['Lessons notes'] ?? 'No Lessons',
         splitLessons: getSplitLessons(input['Lessons notes']),
-        imageUrl: `https://s3.amazonaws.com/camper_photos_bucket_ezf/${input['Photo filename']}`,
+        imageUrl: fileName ? getImageFilePath(fileName) : null,
         // sessions: input['2024 &gt; Session names (all)'],
         //:'Middle School Camp, MS - P1 - Concert Band, MS - P2 - Theatre Games, MS - P3 - Woodwind Choir, MS - P4 - Mask Making, MS - P5 - Concert Band, MS - P6 - Clay Sculpture, MS - P7 - Free Period',
         quickNotes: input['Quick note camper'] || 'No quick notes',
