@@ -7,6 +7,8 @@ export interface BoltApp {
     command: (path: string, command: BoltCommand) => void
     error: (errorFunction: (error: unknown) => Promise<void>) => void
     start: (port: number) => Promise<void>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    message: any
 }
 
 export type BoltAck = () => Promise<void>

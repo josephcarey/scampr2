@@ -16,6 +16,12 @@ const app = new App({
 
 registerRouters(app)
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+app.message('', (message: any) => {
+    console.log(JSON.stringify(message, undefined, 2))
+    console.log(JSON.stringify(message.body.event.text, undefined, 2))
+})
+
 // Error handling
 app.error(async (error: unknown) => {
     // Check the details of the error to handle cases where you should retry sending a message or stop the app
