@@ -1,4 +1,26 @@
-import { getWelcomeMessage } from '../../messages/welcome-message/welcome-message.js'
 import { ScamprResponder } from '../../types/index.js'
+import { homeResponder } from '../home-responder/home-responder.js'
+import { studentSearchResultsResponder } from '../student-search-results-responder/student-search-results-responder.js'
 
-export const homeResponder: ScamprResponder = async () => getWelcomeMessage()
+export const rootResponder: ScamprResponder = async (inputText) => {
+    if (!inputText) return await homeResponder()
+
+    const commandTexts = inputText?.trim().split(' ')
+
+    const [firstCommandText, ...remainingCommandTexts] = commandTexts
+
+    // look for 'student' or 'camper' paths
+    if (
+        firstCommandText.toLowerCase() == 'student' ||
+        firstCommandText.toLowerCase() == 'students' ||
+        firstCommandText.toLowerCase() == 'camper' ||
+        firstCommandText.toLowerCase() == 'campers'
+    ) {
+        return await studentSearchResultsResponder(
+            remainingCommandTexts.join(' ')
+        )
+    }
+
+    // show the main menu
+    return await homeResponder()
+}
