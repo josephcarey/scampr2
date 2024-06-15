@@ -5,8 +5,7 @@ import { getStudentDetailMessage } from '../../messages/student-detail-message/s
 import { getStudentSearchResultsMessage } from '../../messages/student-search-results-message/student-search-results-message.js'
 
 import { ScamprResponder } from '../../types/index.js'
-
-const MAX_RECORDS = 49
+import { MAX_RECORDS } from '../../utils/constants.js'
 
 export const studentSearchResultsResponder: ScamprResponder = async (
     inputString
