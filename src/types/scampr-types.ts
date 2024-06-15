@@ -30,5 +30,16 @@ export type Camper = {
     lessons: string
     splitLessons: CamperLesson[]
     quickNotes: string
+    primaryFamily: {
+        address: {
+            city: string
+            state: string
+        }
+    }
     // sessions: string
+}
+
+export type CamperRoom = {
+    roomNumber: string
+    campers: Camper[]
 }
