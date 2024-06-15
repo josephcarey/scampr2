@@ -1,3 +1,4 @@
+import { getCloseDetailButtonBlock } from '../../blocks/close-detail-button-block/close-detali-button-block'
 import { getHomeButtonBlock } from '../../blocks/home-button-block/home-button-block'
 import { BoltResponse, Camper } from '../../types'
 import { tabAndNewlineParse } from '../../utils/tab-and-newline-parse'
@@ -17,7 +18,10 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
         },
         {
             type: 'actions',
-            elements: [getHomeButtonBlock()],
+            elements: [
+                getHomeButtonBlock(),
+                getCloseDetailButtonBlock(camper.preferredName, camper.id),
+            ],
         },
         camper.imageUrl
             ? {

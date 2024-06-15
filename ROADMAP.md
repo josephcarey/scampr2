@@ -1,5 +1,13 @@
 # Roadmap
 
+## Next Up
+- "Close Detail" button
+- "Room" slash search
+- "Dorm" and "Floor" screens
+- Camper room interaction
+- class slash command
+- period and class
+
 ## General
 - Home screen interaction
 - DM with Scampr interactions
