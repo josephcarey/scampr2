@@ -41,7 +41,10 @@ export const mapCamper = (input: any): Camper => {
         dateOfBirth: input['Date of birth'],
         photoFileName: input['Photo filename'] ?? '---',
         preferredName: input['Preferred Name'] ?? '---',
-        roomNumber: input['2024 Middle School Camp &gt; Room name'] ?? '---',
+        roomNumber:
+            (input['2024 Middle School Camp &gt; Room name'] ||
+                input['2024 High School Camp &gt; Room name']) ??
+            '---',
         p1: getClass(sessions, ' P1 ') ?? '---',
         p2: getClass(sessions, ' P2 ') ?? '---',
         p3: getClass(sessions, ' P3 ') ?? '---',
