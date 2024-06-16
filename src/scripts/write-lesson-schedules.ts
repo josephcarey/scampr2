@@ -244,6 +244,35 @@ export const main = async () => {
                 { id: 'time', title: 'Time' },
                 // { id: 'sortTime', title: 'Sort Time' },
                 { id: 'monday', title: 'Monday' },
+                // { id: 'mondayClass', title: 'Mon Class' },
+                { id: 'tuesday', title: 'Tuesday' },
+                // { id: 'tuesdayClass', title: 'Tue Class' },
+                { id: 'wednesday', title: 'Wednesday' },
+                // { id: 'wednesdayClass', title: 'Wed Class' },
+                { id: 'thursday', title: 'Thursday' },
+                // { id: 'thursdayClass', title: 'Thu Class' },
+                { id: 'friday', title: 'Friday' },
+                // { id: 'fridayClass', title: 'Fri Class' },
+            ],
+        })
+
+        console.log(`Writing csv ${path}...`)
+        csvWriter
+            .writeRecords(studio.times) // returns a promise
+            .then(() => {
+                console.log('\t...Done')
+            })
+    }
+
+    // write the class compare csvs
+    for (const studio of studioObjects) {
+        const path = `${OUTPUT_FOLDER}/with-classes/${studio.studio}.csv`
+        const csvWriter = createObjectCsvWriter({
+            path,
+            header: [
+                { id: 'time', title: 'Time' },
+                // { id: 'sortTime', title: 'Sort Time' },
+                { id: 'monday', title: 'Monday' },
                 { id: 'mondayClass', title: 'Mon Class' },
                 { id: 'tuesday', title: 'Tuesday' },
                 { id: 'tuesdayClass', title: 'Tue Class' },
@@ -263,7 +292,6 @@ export const main = async () => {
                 console.log('\t...Done')
             })
     }
-    console.log(['13:00', '9.00', '14:00'].sort((a, b) => a.localeCompare(b)))
 }
 
 main()
