@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Next Up
+- NOW do this right // with the rimraf and the folder creates
 - "Close Detail" button
 - "Room" slash search
 - "Dorm" and "Floor" screens

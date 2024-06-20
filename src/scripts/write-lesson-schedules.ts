@@ -3,6 +3,7 @@ import 'dotenv/config'
 import { createObjectCsvWriter } from 'csv-writer'
 import { Camper } from '../types'
 import { isNumeric } from '../utils'
+import * as fs from 'fs'
 
 const OUTPUT_FOLDER = './output/lesson-schedules'
 
@@ -40,7 +41,7 @@ const mapLessonEntries: (camper: Camper) => LessonEntry[] = (camper) =>
             day: lesson.day.trim(),
             time: lessonTime,
             sortTime: getSortTime(lessonTime),
-            studio: lesson.studio.trim(),
+            studio: lesson.studio.trim().replace(/\s/g, ''),
             instrument: lesson.instrument.trim(),
             classAtTime: getClassAtTime(camper, lessonTime),
         }
@@ -142,6 +143,9 @@ export const main = async () => {
         mapLessonEntries(camper)
     )
 
+    await fs.mkdirSync(`${OUTPUT_FOLDER}`)
+    await fs.mkdirSync(`${OUTPUT_FOLDER}/with-classes`)
+
     // write the entire originals
     const csvWriter = createObjectCsvWriter({
         path: `${OUTPUT_FOLDER}/raw-lessons.csv`,
@@ -190,22 +194,47 @@ export const main = async () => {
         const currentTime = currentStudio.get(lessonEntry.time)
         switch (lessonEntry.day) {
             case 'Monday':
+                if (currentTime.monday) {
+                    console.log(
+                        `Studio ${lessonEntry.studio} on day ${lessonEntry.day} at time ${lessonEntry.time} already has student ${currentTime.monday} (trying to add student ${lessonEntry.name})`
+                    )
+                }
                 currentTime.monday = lessonEntry.name
                 currentTime.mondayClass = lessonEntry.classAtTime
                 break
             case 'Tuesday':
+                if (currentTime.tuesday) {
+                    console.log(
+                        `Studio ${lessonEntry.studio} on day ${lessonEntry.day} at time ${lessonEntry.time} already has student ${currentTime.tuesday} (trying to add student ${lessonEntry.name})`
+                    )
+                }
                 currentTime.tuesday = lessonEntry.name
                 currentTime.tuesdayClass = lessonEntry.classAtTime
                 break
             case 'Wednesday':
+                if (currentTime.wednesday) {
+                    console.log(
+                        `Studio ${lessonEntry.studio} on day ${lessonEntry.day} at time ${lessonEntry.time} already has student ${currentTime.wednesday} (trying to add student ${lessonEntry.name})`
+                    )
+                }
                 currentTime.wednesday = lessonEntry.name
                 currentTime.wednesdayClass = lessonEntry.classAtTime
                 break
             case 'Thursday':
+                if (currentTime.thursday) {
+                    console.log(
+                        `Studio ${lessonEntry.studio} on day ${lessonEntry.day} at time ${lessonEntry.time} already has student ${currentTime.thursday} (trying to add student ${lessonEntry.name})`
+                    )
+                }
                 currentTime.thursday = lessonEntry.name
                 currentTime.thursdayClass = lessonEntry.classAtTime
                 break
             case 'Friday':
+                if (currentTime.friday) {
+                    console.log(
+                        `Studio ${lessonEntry.studio} on day ${lessonEntry.day} at time ${lessonEntry.time} already has student ${currentTime.friday} (trying to add student ${lessonEntry.name})`
+                    )
+                }
                 currentTime.friday = lessonEntry.name
                 currentTime.fridayClass = lessonEntry.classAtTime
                 break
@@ -266,7 +295,7 @@ export const main = async () => {
 
     // write the class compare csvs
     for (const studio of studioObjects) {
-        const path = `${OUTPUT_FOLDER}/with-classes/${studio.studio}.csv`
+        const path = `${OUTPUT_FOLDER}/with-classes/${studio.studio}-with-classes.csv`
         const csvWriter = createObjectCsvWriter({
             path,
             header: [
