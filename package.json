@@ -17,7 +17,7 @@
         "test": "jest",
         "prescript:camper-data": "npm run clean && npm run build",
         "script:camper-data": "node dist/scripts/write-camper-data.js",
-        "prescript:lesson-schedules": "npm run clean && npm run build",
+        "prescript:lesson-schedules": "npm run clean && npm run build && rimraf output/lesson-schedules",
         "script:lesson-schedules": "node dist/scripts/write-lesson-schedules.js",
         "prescript:enrollment-info": "npm run clean && npm run build",
         "script:enrollment-info": "node dist/scripts/write-session-info.js"
