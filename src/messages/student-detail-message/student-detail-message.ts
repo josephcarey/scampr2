@@ -1,5 +1,7 @@
+import { getButtonBlock } from '../../blocks/button-block/button-block'
 import { getCloseDetailButtonBlock } from '../../blocks/close-detail-button-block/close-detali-button-block'
 import { getHomeButtonBlock } from '../../blocks/home-button-block/home-button-block'
+import { URL_BUTTON_ACTION_STRING } from '../../routers/actions/url-button-action/url-button-action'
 import { BoltResponse, Camper } from '../../types'
 import { tabAndNewlineParse } from '../../utils/tab-and-newline-parse'
 
@@ -21,6 +23,18 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
             elements: [
                 getHomeButtonBlock(),
                 getCloseDetailButtonBlock(camper.preferredName, camper.id),
+                // getButtonBlock(
+                //     'Med Form',
+                //     URL_BUTTON_ACTION_STRING,
+                //     'med-form',
+                //     camper.formUrls.medForm
+                // ),
+                getButtonBlock(
+                    'Behavior Form',
+                    URL_BUTTON_ACTION_STRING,
+                    'behavior-form',
+                    camper.formUrls.behaviorForm
+                ),
             ],
         },
         camper.imageUrl
@@ -43,28 +57,6 @@ export const getStudentDetailMessage: (camper: Camper) => BoltResponse = (
                 text: `Quick notes: ${camper.quickNotes}`,
             },
         },
-        // {
-        // type: 'section',
-        // text: {
-        //     type: 'mrkdwn',
-        //     text: `Face:`,
-        // },
-        // accessory: {
-        //     type: 'image',
-        //     image_url: camper.imageUrl ?? '',
-        //     alt_text: 'camper',
-        // },
-        // accessory: {
-        //   type: "button",
-        //   text: {
-        //     type: "plain_text",
-        //     text: "Select",
-        //     emoji: true,
-        //   },
-        //   value: camper.roomNumber,
-        //   action_id: "room-button",
-        // },
-        // },
         {
             type: 'section',
             text: {

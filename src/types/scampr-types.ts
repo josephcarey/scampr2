@@ -36,6 +36,10 @@ export type Camper = {
             state: string
         }
     }
+    formUrls: {
+        medForm: string
+        behaviorForm: string
+    }
     // sessions: string
 }
 
